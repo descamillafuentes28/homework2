@@ -63,45 +63,49 @@
 
 
             //add group of text with players names
-
+                .data(data)           
                 //append text element
-
+                .enter().append('text')
                 //add x variable
-
+                .attr('x', -10)
                 //add text anchor (end)
-
+                .text(d => d.player)
                 //add y variable
-
+                .attr('y', (d, i) => i * 25 + 15)
                 //add player name
-                
+                .attr('class', 'player')
 
             //add rectangles
-
+                g.selectAll('rect')
+                .data(data)
                 //append rectangles
-
+                .enter().append('rect')
                 //put X variable
-
+                .attr('x', 0)
                 //put Y variable
-
+                .attr('y', (d, i) => i * 25)
                 //Give a width that reflects points per game (ppg)
-
+                .attr('width', d => d.ppg * 10)
                 //Give a height of 20
-
+                .attr('height', 20)
                 //Give a fill color to your hearts desire
+                .atttr('fill', 'purple');
 
                 
             //add group of text for the points per game
-
+                g.selectAll('.ppg-text')
+                .data(data)
                 //append text element
-
+                .enter().append('text')
+                .attr('class', 'ppg-text')
                 //add x variable with margin using the ppg data point
-
+                .attr('x', d => d.ppg * 10 + 5)
                 //add text anchor (start)
-
+                .style('text-anchor', 'start')
                 //add y variable
-
+                .attr('y', (d, i) => i + 25 + 15)
                 //add text
-
+                .text(d => d.ppg);
         });
 
 
